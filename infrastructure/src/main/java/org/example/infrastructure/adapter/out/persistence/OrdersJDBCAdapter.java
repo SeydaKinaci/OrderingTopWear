@@ -36,6 +36,9 @@ public class OrdersJDBCAdapter implements Orders {
     @Override
     public void deleteById(UUID orderId) {
         var order = orderRepository.findByUuid(orderId);
+        if (order == null) {
+            throw new OrderNotFound();
+        }
         orderRepository.deleteById(order.getId());
     }
 }

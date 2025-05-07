@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.function.Supplier;
 
-@Transactional(isolation = Isolation.SERIALIZABLE)
 public class TransactionalUseCaseExecutor {
 
     static final Logger log = LoggerFactory.getLogger(TransactionalUseCaseExecutor.class);
