@@ -43,7 +43,10 @@ public class OrderingTopWearTest {
         LineItem lineItem = new LineItem(topWear, 2);
         Order order = new Order(List.of(lineItem), Location.DELIVERY);
 
+        orders.save(order);
+
         orderingTopWear.cancelOrder(order.getId());
+
         assertThatThrownBy(()-> orders.findOrderById(order.getId())).isInstanceOf(OrderNotFound.class);
 
 
